@@ -13,7 +13,7 @@ import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.*;
 import org.apache.commons.compress.utils.IOUtils;
 
-public class Main {
+public class ShortDemoReport {
 
     private static InputStream candara;
     private static InputStream candarabold;
@@ -88,7 +88,7 @@ public class Main {
         latobold = new Main().getClass().getResourceAsStream("Lato-Bold.ttf");
         latoblack = new Main().getClass().getResourceAsStream("Lato-Black.ttf");
 
-        File out = new File(outputFolderfile.getAbsolutePath()+"/"+barcode+"_English"+ (isDemo ? "_demo":"") +".pdf");
+        File out = new File(outputFolderfile.getAbsolutePath()+"/"+barcode+"_English"+ (isDemo ? "_short_demo":"") +".pdf");
 
         com.itextpdf.text.Document document = new com.itextpdf.text.Document(PageSize.A4);
         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(out));
@@ -172,161 +172,6 @@ public class Main {
             item=i+2;
         }
         addWatermark(cb,CANDARA_BOLD);
-
-        page = writer.getImportedPage(reader, 4);
-        document.newPage();
-        cb.addTemplate(page, 0, 0);
-        addWatermark(cb,CANDARA_BOLD);
-
-        page = writer.getImportedPage(reader, 5);
-        document.newPage();
-        cb.addTemplate(page, 0, 0);
-
-        Image img = Image.getInstance(datadir+"/"+dat.get(keys.get(item++)));
-        xpos = 55f;
-        ypos = 450f;
-        coef = 1.05f;
-        width = 460f*coef;
-        height = 17f*coef;
-        radius = height/2f;
-        img.setAbsolutePosition(xpos, ypos);
-
-        addParagraph("Your Result:", cb,xpos,ypos, xpos+width, ypos+50f,LATO_BOLD,15f);
-
-        drawGraphLarge(cb,img,xpos,ypos,width,height,radius);
-
-        String text0502 = dat.get(keys.get(item++));
-        addParagraph(text0502, cb,xpos,ypos-195f, xpos+width, ypos-5f,CANDARA_REGULAR,10f);
-        addWatermark(cb,CANDARA_BOLD);
-
-        page = writer.getImportedPage(reader, 6);
-        document.newPage();
-        cb.addTemplate(page, 0, 0);
-
-        img = Image.getInstance(datadir+"/"+dat.get(keys.get(item++)));
-        xpos = 55f;
-        ypos = 490f;
-        coef = 1.05f;
-        width = 460f*coef;
-        height = 17f*coef;
-        radius = height/2f;
-        img.setAbsolutePosition(xpos, ypos);
-
-        addParagraph("Your Result:", cb,xpos,ypos, xpos+width, ypos+50f,LATO_BOLD,15f);
-
-        drawGraphLarge(cb,img,xpos,ypos,width,height,radius);
-
-        String text0602 = dat.get(keys.get(item++));
-        addParagraph(text0602, cb,xpos,ypos-195f, xpos+width, ypos-5f,CANDARA_REGULAR,10f);
-        addWatermark(cb,CANDARA_BOLD);
-
-        page = writer.getImportedPage(reader, 7);
-        document.newPage();
-        cb.addTemplate(page, 0, 0);
-
-        img = Image.getInstance(datadir+"/"+dat.get(keys.get(item++)));
-        xpos = 55f;
-        ypos = 375f;
-        coef = 1.05f;
-        width = 460f*coef;
-        height = 17f*coef;
-        radius = height/2f;
-        img.setAbsolutePosition(xpos, ypos);
-
-        addParagraph("Your Result:", cb,xpos,ypos, xpos+width, ypos+50f,LATO_BOLD,15f);
-
-        drawGraphLarge(cb,img,xpos,ypos,width,height,radius);
-
-        String text0702 = dat.get(keys.get(item++));
-        addParagraph(text0702, cb,xpos,ypos-195f, xpos+width, ypos-5f,CANDARA_REGULAR,10f);
-        addWatermark(cb,CANDARA_BOLD);
-
-        page = writer.getImportedPage(reader, 8);
-        document.newPage();
-        cb.addTemplate(page, 0, 0);
-
-        img = Image.getInstance(datadir+"/"+dat.get(keys.get(item++)));
-        xpos = 55f;
-        ypos = 328f;
-        coef = 1.05f;
-        width = 460f*coef;
-        height = 17f*coef;
-        radius = height/2f;
-        img.setAbsolutePosition(xpos, ypos);
-
-        addParagraph("Your Result:", cb,xpos,ypos, xpos+width, ypos+50f,LATO_BOLD,15f);
-
-        drawGraphLarge(cb,img,xpos,ypos,width,height,radius);
-
-        String text0802 = dat.get(keys.get(item++));
-        addParagraph(text0802, cb,xpos,ypos-195f, xpos+width, ypos-5f,CANDARA_REGULAR,10f);
-        addWatermark(cb,CANDARA_BOLD);
-
-        page = writer.getImportedPage(reader, 9);
-        document.newPage();
-        cb.addTemplate(page, 0, 0);
-
-        img = Image.getInstance(datadir+"/"+dat.get(keys.get(item++)));
-        xpos = 55f;
-        ypos = 185f;
-        coef = 1.05f;
-        width = 460f*coef;
-        height = 17f*coef;
-        radius = height/2f;
-        img.setAbsolutePosition(xpos, ypos);
-
-        addParagraph("Your Result:", cb,xpos,ypos, xpos+width, ypos+50f,LATO_BOLD,15f);
-
-        drawGraphLarge(cb,img,xpos,ypos,width,height,radius);
-
-        String text0902 = dat.get(keys.get(item++));
-        addParagraph(text0902, cb,xpos,ypos-195f, xpos+width, ypos-5f,CANDARA_REGULAR,10f);
-        addWatermark(cb,CANDARA_BOLD);
-
-        page = writer.getImportedPage(reader, 10);
-        document.newPage();
-        cb.addTemplate(page, 0, 0);
-
-        xpos = 430f;
-        ypos = 295f;
-        coef = 0.50f;
-        width = 155f*coef;
-        height = 20f*coef;
-        radius = height/2f;
-
-        int item2 = item;
-        for(int i=item2;i<item2+5;i++) {
-            item++;
-            String detection = dat.get(keys.get(i));
-            if(detection.equals("YES")){
-                cb.setColorFill(BaseColor.RED);
-            }else{
-                cb.setColorFill(new BaseColor(0,184,0));
-            }
-
-            cb.beginText();
-            cb.setFontAndSize(LATO_BOLD, 10f);
-            cb.showTextAligned(PdfContentByte.ALIGN_CENTER, detection, xpos, ypos, 0);
-            cb.endText();
-
-            cb.setColorFill(BaseColor.BLACK);
-            ypos -= 28f;
-        }
-        addWatermark(cb,CANDARA_BOLD);
-
-        for(int i=11;i<18;i++){
-            page = writer.getImportedPage(reader, i);
-            document.newPage();
-            cb.addTemplate(page, 0, 0);
-            addWatermark(cb,CANDARA_BOLD);
-        }
-
-        //if(!isDemo){
-            page = writer.getImportedPage(reader, 18);
-            document.newPage();
-            cb.addTemplate(page, 0, 0);
-            addWatermark(cb,CANDARA_BOLD);
-        //}
 
         for(int i=19;i<21;i++){
             page = writer.getImportedPage(reader, i);
